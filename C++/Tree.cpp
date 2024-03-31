@@ -78,15 +78,23 @@ void levelOrderTraversal(Node *root)
 
     while (!q.empty())
     {
-        Node *temp = q.front();
-        cout << temp->data << " ";
-        q.pop();
+        int size = q.size();
 
-        if (temp->left)
-            q.push(temp->left);
+        for (int i = 0; i < size; i++)
+        {
 
-        if (temp->right)
-            q.push(temp->right);
+            Node *temp = q.front();
+            q.pop();
+
+            cout << temp->data << " ";
+
+            if (temp->left)
+                q.push(temp->left);
+
+            if (temp->right)
+                q.push(temp->right);
+        }
+        cout << endl;
     }
 }
 
@@ -101,19 +109,21 @@ int main()
 
     cout << endl;
     cout << "Level order traersal is: ";
+    cout << endl;
+
     levelOrderTraversal(root);
 
-    cout << endl;
-    cout << "Inorder traersal is: ";
-    inOrder(root);
+    // cout << endl;
+    // cout << "Inorder traersal is: ";
+    // inOrder(root);
 
-    cout << endl;
-    cout << "Pre Order traersal is: ";
-    preOrder(root);
+    // cout << endl;
+    // cout << "Pre Order traersal is: ";
+    // preOrder(root);
 
-    cout << endl;
-    cout << "Post Order traersal is: ";
-    postOrder(root);
+    // cout << endl;
+    // cout << "Post Order traersal is: ";
+    // postOrder(root);
 
     return 1;
 }
